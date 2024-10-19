@@ -16,3 +16,9 @@ vim .env
 pip install -r requirements.txt
 python main.py
 ```
+
+## docker 运行
+
+```bash
+docker compose up -d
+```
