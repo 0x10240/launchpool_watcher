@@ -1,0 +1,16 @@
+services:
+
+  launchpool_watcher:
+    build: .
+    image: launchpool_watcher
+    container_name: launchpool_watcher
+    volumes:
+      - ./.env:/app/.env
+    working_dir: /app
+    command: python /app/main.py
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"

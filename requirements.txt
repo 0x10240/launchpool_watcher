@@ -1,0 +1,4 @@
+requests
+loguru
+python-dotenv
+apscheduler
