@@ -9,7 +9,6 @@ from requests.exceptions import RequestException
 from urllib3.util.retry import Retry
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-
 from dotenv import load_dotenv
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -169,10 +168,11 @@ class BybitLaunchPool:
             if "Launchpool" not in title:
                 continue
 
-            self.process_launchpool(article)
             object_id = article.get("objectID", "")
             if not object_id or object_id in cached_articles:
                 continue
+
+            self.process_launchpool(article)
 
             publish_time = self.timestamp_to_time(article.get("publish_time", 0))
             url = urljoin("https://announcements.bybit.com/zh-MY/", article.get("url", ""))
